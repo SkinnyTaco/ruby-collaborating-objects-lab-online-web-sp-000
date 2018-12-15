@@ -21,4 +21,9 @@ class Artist
     @@all << self
   end
   
+  def self.find_or_create_by_name(name)
+    index = @@all.index
+    index ? @@all[index] : Artist.new(name)
+  end
+  
 end
