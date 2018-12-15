@@ -22,8 +22,10 @@ class Artist
   end
   
   def self.find_or_create_by_name(name)
-    index = @@all.index
-    index ? @@all[index] : Artist.new(name)
+    @@all.each do |artist|
+      return artist if artist.name == name
+    end
+    Artist.new(name)
   end
   
 end
